@@ -1,0 +1,241 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+}
+body {
+    margin: 0;
+    font-size: 1.2rem;
+    background-color: #333;
+    color: white;
+}
+header {
+    background: radial-gradient(circle, #5d1a78, #000000);
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 10px 0;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+
+
+form {
+    width: 500px;
+    margin: 0rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 70px 0;
+}
+.bg__container {
+    background: url('bg.jpg') center no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+}
+
+
+
+form input, form select {
+    padding: 0.7rem 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+input[type="text"] {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 18px;
+}
+
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+}
+form > button {
+    cursor: pointer;
+    background: radial-gradient(circle, #5d1a78, #000000);
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: 0.7rem 1rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+form > button span {font-size: 18px ;display: block; transition: all 0.3s ease 0s;}
+form > button:hover {background: radial-gradient(circle, #000000,  #5d1a78);}
+form > button:hover span{
+    transform: scale(1.8);
+}
+
+ul {
+    list-style: none;
+    width: 750px;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.todo-item {
+    display: flex;
+    gap: 1rem;
+    padding: 10px 0;
+    position: relative;
+}
+.close {
+    color: red;
+    cursor: pointer;
+    font-weight: bolder;
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+}
+.close:hover {
+    color:rgb(254, 77, 77)
+}
+
+
+.up {
+    position: fixed;
+    font-size: 40px;
+    right: 20px;
+    top: 50%;
+    background:  #5d1a78;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transform: translate(200px, 0);
+    transition: all 0.6s ease 0s;
+}
+.up.act {
+    transform: translate(0px, 0);
+}
+
+.error {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    background: rgb(64, 64, 64);
+    color: rgb(255, 0, 0);
+    padding: 10px 20px;
+    transition: all 0.4s ease 0s;
+    transform: translate(-50%, 0) scale(0);
+}
+.error.act{
+    transform:translate(-50%, 0) scale(1);
+}
+
+
+.left-btn {
+    position: fixed;
+    left: 0px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.left-btn span {
+    display: block;
+    background: radial-gradient(circle, #5d1a78, #000000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width:70px;
+    cursor: pointer;
+    transform: translate(-40px, 0);
+    transition: all 0.3s ease 0s;
+}
+.reset {
+    font-size: 50px;
+    position: relative;
+}
+.reset::before {
+    content: 'reset todo list';
+    position: absolute;
+    top: -60%;
+    padding: 10px;
+    background-color: rgb(39, 39, 39);
+    left: 0px;
+    font-size: 15px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease 0s;
+}
+.reset:hover::before {
+    visibility: visible;
+    opacity: 1;
+}
+
+.update img{
+    width: 40px;
+}
+.update {
+    position: relative;
+}
+.update::before {
+    content: 'update todo list';
+    position: absolute;
+    bottom: -60%;
+    padding: 10px;
+    background-color: rgb(39, 39, 39);
+    left: 0px;
+    font-size: 15px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease 0s;
+}
+.update:hover::before {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.left-btn span:hover{
+    transform: translate(0px, 0);
+    outline: 1px solid grey;
+}
+
+
+@media (max-width: 1023px){
+    .left-btn span {transform: translate(-10px, 0);}
+    .left-btn span:hover{transform: translate(-10px, 0);}
+    ul { width: 550px;}
+    .todo-item {  padding: 10px 15px 10px 0; }
+}
+@media (max-width: 767px){
+    form {
+        width: 100%;
+        padding: 50px 10px;
+    } 
+    ul {
+        width: 100%;
+        padding: 1rem 20px;
+    }
+    .left-btn span {
+        height: 40px;
+        width: 40px;
+        transform: translate(0px, 0);
+    }
+    .left-btn span:hover{transform: translate(0px, 0);}
+    .up {
+        right: 10px;
+        top: 90%; 
+    }
+    .left-btn {  top: 92%;}
+    .update::before {
+        bottom: 0%;
+        left: 110%;
+    }
+    .reset::before {
+        top: 0%;
+        left: 110%;
+    }
+    .todo-item {font-size: 13px;}
+}
